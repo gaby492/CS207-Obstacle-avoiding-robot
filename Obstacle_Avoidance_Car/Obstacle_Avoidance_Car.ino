@@ -99,7 +99,8 @@ void loop() {
 
 
     //if gestr == 'f'
-    if(middleDistance <= 20) {     
+    if(middleDistance <= 20) { 
+      Serial.println("Obstacle");    
       stop();
       delay(500);                         
       myservo.write(10);          
@@ -130,13 +131,15 @@ void loop() {
       }
       else {
         ///un if con el gestr
-        forward();
+        if(getstr=='f')
+          forward();
       }
     }  
     else {
         ///un if con el gestr
-        forward();
+        if(getstr=='f')
+          forward();
+        Serial.println("Avaza sin problemas");
     } 
- 
 }
 
