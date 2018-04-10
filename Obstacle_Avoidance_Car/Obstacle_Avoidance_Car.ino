@@ -5,6 +5,11 @@
 Servo myservo;      // create servo object to control servo
 char getstr;
 
+//Line Tracking IO define
+#define LT_R !digitalRead(10)  //!
+#define LT_M !digitalRead(4)   //!
+#define LT_L !digitalRead(2)   //!
+
 int Echo = A4;  
 int Trig = A5; 
 
@@ -18,8 +23,8 @@ int Trig = A5;
 int rightDistance = 0, leftDistance = 0, middleDistance = 0;
 
 void forward(){ 
-  analogWrite(ENA, carSpeed);
-  analogWrite(ENB, carSpeed);
+  analogWrite(ENA, carSpeed); //80
+  analogWrite(ENB, carSpeed); //80
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
@@ -75,6 +80,23 @@ int Distance_test() {
   return (int)Fdistance;
 }  
 
+void verifyFloor() {
+  if(LT_M || LT_R || LT_L){
+    Serial.print(!digitalRead(4));
+    Serial.print(!digitalRead(10));
+    Serial.print(!digitalRead(2));
+    //forward();
+    back();
+    
+    //Let's check which path should take next
+    while(LT_R){left(); delay(360); };
+    while(LT_L){right(); delay(360);};  
+  }//else{stop();}
+  
+  Serial.println(" ");
+}
+
+
 void setup() { 
   myservo.attach(3);  // attach servo on pin 3 to servo object
   Serial.begin(9600);     
@@ -95,7 +117,7 @@ void loop() {
     delay(500); 
     middleDistance = Distance_test();
     Serial.println("Out of FW");
-    delay(100);
+    //delay(100);
 
 
     //if gestr == 'f'
@@ -141,5 +163,7 @@ void loop() {
           forward();
         Serial.println("Avaza sin problemas");
     } 
+    
+    if(getstr=='s'){stop();}
 }
 
