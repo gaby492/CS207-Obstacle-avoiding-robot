@@ -8,3 +8,7 @@ backward and change its path. And the owner will be able to control it again.
 
 
 
+"Black Line" avoiding code coming soon....
+
+
+
