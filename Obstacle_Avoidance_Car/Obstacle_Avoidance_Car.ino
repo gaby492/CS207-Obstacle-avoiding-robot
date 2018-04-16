@@ -23,8 +23,8 @@ char getstr;
 int Echo = A4;  
 int Trig = A5; 
 
-#define ENA 5
-#define ENB 6
+#define ENA 5  //Controls speed of left motor
+#define ENB 6  //Controls speed of right motor
 
 //For controlling the left motor
 #define IN1 7
