@@ -5,10 +5,6 @@
 Servo myservo;      // create servo object to control servo
 char getstr;
 
-//Line Tracking IO define
-#define LT_R !digitalRead(10)  //!
-#define LT_M !digitalRead(4)   //!
-#define LT_L !digitalRead(2)   //!
 
 int Echo = A4;  
 int Trig = A5; 
@@ -109,18 +105,15 @@ void setup() {
   pinMode(ENA, OUTPUT);
   pinMode(ENB, OUTPUT);
   stop();
-} 
+}
 
 void loop() { 
-    getstr = Serial.read();
+    getstr = Serial.read(); 
+    
     myservo.write(90);  //setservo position according to scaled value
     delay(500); 
     middleDistance = Distance_test();
-    Serial.println("Out of FW");
-    //delay(100);
 
-
-    //if gestr == 'f'
     if(middleDistance <= 20) { 
       Serial.println("Obstacle");    
       stop();
@@ -151,19 +144,16 @@ void loop() {
         back();
         delay(180);
       }
-      else {
-        ///un if con el gestr
-        if(getstr=='f')
+      else if(getstr=='f'){ 
           forward();
       }
     }  
-    else {
-        ///un if con el gestr
-        if(getstr=='f')
+    else if(getstr=='f'){
           forward();
-        Serial.println("Avaza sin problemas");
-    } 
-    
-    if(getstr=='s'){stop();}
+    }else if(getstr=='b'){
+          back();
+    }else if(getstr=='s'){
+          stop();
+    }    
 }
 
