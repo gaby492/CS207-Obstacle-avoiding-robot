@@ -1,12 +1,11 @@
 //www.elegoo.com
 
 //Line Tracking IO define
-#define LT_R !digitalRead(10)  //!
-#define LT_M !digitalRead(4)   //!
-#define LT_L !digitalRead(2)   //!
+#define LT_R !digitalRead(10)  
+#define LT_M !digitalRead(4)   
+#define LT_L !digitalRead(2)   
 
 char getstr;
-
 
 #define ENA 5 
 #define ENB 6
