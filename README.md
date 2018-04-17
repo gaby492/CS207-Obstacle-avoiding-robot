@@ -4,7 +4,7 @@ CS207 Final Project
 
 The aim of this project is to build the obstacle avoiding robot using the ELEGOO's "Smart Robot Car V3.0" . The main idea behind it is allowing the owner to control the robot, so that he can decide where the
 robot should go, but if there is an obstacle the robot will no longer move forward, instead, the car will move
-backward and change its path. And the owner will be able to control it again.
+backward and change its path. And the owner will be able to control it again. The source code is based on the code provided by ELEGOO in the CD Tutorial provided in the Kit.
 
 
 # HOW THE PROJECT WORKS
