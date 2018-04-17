@@ -10,7 +10,8 @@ backward and change its path. And the owner will be able to control it again.
 # HOW THE PROJECT WORKS
 _______________________________________________________________________________________
 
-If the project is perfectly assembled and the sketch "Obstacle_Avoidance_Car.ino", then the steps are the following:
+If the project is perfectly assembled and the sketch "Obstacle_Avoidance_Car.ino" is successfully uploaded into the 
+arduino board, then the steps are the following:
 
 1. Download the application “ELEGOO BLE Tool” provided by ELEGOO and available for Android and IOS.
 2. The application provides some buttons, and the user has to set the values that every button is going to represent. The user can change those values by keeping pressing any button.
@@ -20,7 +21,11 @@ If the project is perfectly assembled and the sketch "Obstacle_Avoidance_Car.ino
 6. After following the steps mentioned before, the user will be able to control the robot.
 
 
-"Black Line" avoiding code coming soon....
+
+# Avoiding stairs
+There is an additional file called avoidStairs.ino which contains the code for avoiding black lines. The idea behind this sketch was
+to use it to complement the Obstacle_Avoidance_Car.ino sketch, but when both codes were put together the robot didn't behave as expected.
+The black lines can indicate the border of the stairs and for instance, it can help the robot to avoid them.
 
 
 
